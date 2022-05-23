@@ -1,0 +1,10 @@
+@import "../../settings";
+
+.navbar-app {
+	padding: $gap;
+	display: flex;
+	align-items: center;
+	font-size: 1.5rem;
+	background: $main-color;
+	color: $light-accent;
+}

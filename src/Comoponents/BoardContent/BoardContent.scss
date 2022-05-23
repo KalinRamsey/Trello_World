@@ -1,0 +1,21 @@
+@import "../../settings";
+
+.trelloColumns {
+	display: flex;
+	margin: 0 $gap $gap;
+	gap: $gap;
+	overflow-x: auto;
+
+	&::-webkit-scrollbar {
+		-webkit-appearance: none;
+	}
+
+	&::-webkit-scrollbar:horizontal {
+		height: $gap;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: lighten($color: $dark-shade, $amount: 15);
+		border-bottom: 5px solid $dark-shade;
+	}
+}
