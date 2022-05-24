@@ -1,3 +1,4 @@
+import SubList from "../SubList/SubList";
 import "./Card.scss";
 
 interface CardInfo {
@@ -26,11 +27,7 @@ const Card = (props: { card: CardInfo }) => {
 					/>
 				)}
 				{card.subTasks && card.subTasks.length > 0 ? (
-					<ul className='subList'>
-						{card.subTasks.map((task, index) => {
-							return <li>{task}</li>;
-						})}
-					</ul>
+					<SubList sublist={card.subTasks} />
 				) : null}
 			</div>
 		</>

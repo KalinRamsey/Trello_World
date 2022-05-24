@@ -1,0 +1,20 @@
+@import "../../settings";
+
+.subList {
+	background: $dark-shade;
+	border-radius: $card-border-radius;
+	padding: $gap;
+	list-style-type: none;
+	margin-top: $gap/2;
+
+	.listItem {
+		&:not(:first-child),
+		:not(:last-child) {
+			margin: $gap/2 auto;
+		}
+
+		label {
+			margin-left: $gap;
+		}
+	}
+}
