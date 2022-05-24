@@ -3,8 +3,8 @@
 .column {
 	flex: 0 0 auto;
 	width: 300px;
-	height: calc(100% - #{$gap});
-	// margin-left: $gap;
+	height: calc(100vh - 40px - 50px - #{$gap});
+	margin-right: $gap;
 
 	> * {
 		background: $main-color;
@@ -13,6 +13,7 @@
 	}
 
 	header {
+		cursor: pointer;
 		padding-left: 15px;
 		height: $col-header-height;
 		line-height: $col-header-height;
@@ -30,7 +31,7 @@
 		border-radius: 0 0 $col-border-radius $col-border-radius;
 	}
 
-	ul.card-list {
+	.card-list {
 		list-style: none;
 		margin: 0;
 		padding-bottom: $gap;
@@ -49,5 +50,73 @@
 			background-color: darken($color: $main-color, $amount: 15);
 			border-right: 5px solid $main-color;
 		}
+
+		.card-ghost {
+			transition: transform 0.18s ease;
+			animation-name: wobble;
+			animation-duration: 2s;
+			animation-fill-mode: both;
+			-webkit-animation-duration: 2s;
+			-webkit-animation-fill-mode: both;
+		}
+
+		.card-ghost-drop {
+			transition: transform 0.18s ease-in-out;
+			transform: rotateZ(0deg);
+		}
+
+		.card-drop-preview {
+			background-color: rgba(150, 150, 200, 0.1);
+			border: 1px dashed $light-accent;
+			border-radius: $card-border-radius;
+			margin: 5px;
+		}
+	}
+}
+
+@keyframes wobble {
+	0% {
+		transform: rotate(0deg);
+	}
+	15% {
+		transform: rotate(-5deg);
+	}
+	30% {
+		transform: rotate(4deg);
+	}
+	45% {
+		transform: rotate(-3deg);
+	}
+	60% {
+		transform: rotate(2deg);
+	}
+	75% {
+		transform: rotate(-1deg);
+	}
+	100% {
+		transform: (0%);
+	}
+}
+@-webkit-keyframes wobble {
+	0% {
+		transform: rotate(0deg);
+	}
+	15% {
+		transform: rotate(-5deg);
+	}
+	30% {
+		transform: rotate(4deg);
+	}
+	45% {
+		transform: rotate(-3deg);
+	}
+	60% {
+		transform: rotate(2deg);
+	}
+	75% {
+		transform: rotate(-1deg);
+	}
+	100% {
+		transform: (0%);
 	}
 }

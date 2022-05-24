@@ -5,14 +5,16 @@
 	padding: $gap;
 	border-radius: $card-border-radius;
 	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+	margin-bottom: $gap;
 
-	&:not(:last-child) {
-		margin-bottom: $gap;
+	h5 {
+		cursor: pointer;
 	}
 
 	img {
 		display: block;
-		width: calc(100% + #{$gap}/ 2 - 2px);
+		width: 100%;
+		border: 2px solid $main-color;
 		// width: calc(100% + #{$gap});
 		// margin: -$gap 0 -$gap 0;
 		border-radius: $col-border-radius;

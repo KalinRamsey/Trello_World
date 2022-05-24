@@ -3,6 +3,7 @@ import _ from "lodash";
 import Column from "../Column/Column";
 import { mockData } from "../../actions/mockData";
 import { mapColumnOrder } from "../../utilities/sort";
+import { Container, Draggable } from "react-smooth-dnd";
 
 import "./BoardContent.scss";
 
@@ -12,6 +13,8 @@ interface CardInfo {
 	columnId: string;
 	title: string;
 	image: string | null;
+	description?: string;
+	subTasks?: string[];
 }
 
 interface Category {
@@ -38,6 +41,10 @@ const BoardContent = () => {
 		}
 	}, []);
 
+	const onColumnDrop = (dropResult: any) => {
+		console.log(">>> inside onColumnDrop: ", dropResult);
+	};
+
 	if (_.isEmpty(board)) {
 		return (
 			<>
@@ -49,11 +56,28 @@ const BoardContent = () => {
 	return (
 		<>
 			<div className='trelloColumns'>
-				{columns &&
-					columns.length > 0 &&
-					columns.map((column, index) => {
-						return <Column key={column.id} column={column} />;
-					})}
+				{/* @ts-ignore */}
+				<Container
+					orientation='horizontal'
+					onDrop={onColumnDrop}
+					getChildPayload={(index) => columns[index]}
+					dragHandleSelector='.column-drag-handle'
+					dropPlaceholder={{
+						animationDuration: 150,
+						showOnTop: true,
+						className: "column-drop-preview",
+					}}>
+					{columns &&
+						columns.length > 0 &&
+						columns.map((column, index) => {
+							return (
+								// @ts-ignore
+								<Draggable key={column.id}>
+									<Column column={column} />
+								</Draggable>
+							);
+						})}
+				</Container>
 			</div>
 		</>
 	);

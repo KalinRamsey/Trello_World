@@ -2,7 +2,7 @@
 
 .trelloColumns {
 	display: flex;
-	margin: 0 $gap $gap;
+	margin: 0 $gap $gap 0;
 	gap: $gap;
 	overflow-x: auto;
 
@@ -17,5 +17,13 @@
 	&::-webkit-scrollbar-thumb {
 		background-color: lighten($color: $dark-shade, $amount: 15);
 		border-bottom: 5px solid $dark-shade;
+	}
+
+	.column-drop-preview {
+		// background-image: linear-gradient(to bottom, $dark-accent, $dark-shade);
+		background: rgba(150, 150, 200, 0.1);
+		border: 1px dashed $light-accent;
+		border-radius: $col-border-radius;
+		margin: 5px 20px 5px 20px;
 	}
 }
