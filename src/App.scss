@@ -13,4 +13,10 @@
 	grid-template-rows: 40px 50px 1fr;
 	line-height: 1.3em;
 	background: $dark-shade;
+
+	.icon {
+		font-size: 14px;
+		margin-right: $gap/2;
+		color: $light-accent;
+	}
 }

@@ -22,13 +22,9 @@ interface Category {
 	cards: Array<CardInfo>;
 }
 
-const Column = (props: { column: Category }) => {
-	const { column } = props;
+const Column = (props: { column: Category; onCardDrop: Function }) => {
+	const { column, onCardDrop } = props;
 	const cards = mapCardOrder(column.cards, column.cardOrder, "id");
-
-	const onCardDrop = (dropResult: any) => {
-		console.log(">>> inside onCardDrop: ", dropResult);
-	};
 
 	return (
 		<>
@@ -38,7 +34,7 @@ const Column = (props: { column: Category }) => {
 					{/* @ts-ignore */}
 					<Container
 						groupName='col'
-						onDrop={onCardDrop}
+						onDrop={(dropResult) => onCardDrop(dropResult, column.id)}
 						getChildPayload={(index) => cards[index]}
 						dragClass='card-ghost'
 						dropClass='card-ghost-drop'
@@ -61,7 +57,11 @@ const Column = (props: { column: Category }) => {
 							})}
 					</Container>
 				</div>
-				<footer>+ New Card</footer>
+				<footer>
+					<div className='footer-action'>
+						<i className='fa fa-plus icon'></i>New Card
+					</div>
+				</footer>
 			</div>
 		</>
 	);

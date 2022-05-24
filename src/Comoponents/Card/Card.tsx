@@ -16,8 +16,10 @@ const Card = (props: { card: CardInfo }) => {
 
 	return (
 		<>
-			<div className='card-item'>
-				<h5 className='card-drag-handle'>{card.title}</h5>
+			<div className='card-item card-drag-handle'>
+				<header className='card-drag-handle'>
+					<h5>{card.title}</h5>
+				</header>
 				{card.image && (
 					<img
 						className='card-cover'

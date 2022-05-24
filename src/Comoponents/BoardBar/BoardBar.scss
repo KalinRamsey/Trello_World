@@ -5,7 +5,33 @@
 	display: flex;
 	justify-content: end;
 	align-items: center;
-	color: $light-accent;
+	color: $light-shade;
 	font-size: 1.1rem;
 	background: $dark-shade;
+
+	.add-new-column {
+		display: flex;
+		align-items: center;
+		height: 32px;
+		line-height: 32px;
+		background: $main-color;
+		padding: $gap;
+		justify-content: flex-end;
+		border-radius: $col-border-radius;
+		cursor: pointer;
+
+		&:hover {
+			background: $light-accent;
+			transition: 1.5s ease-out;
+
+			.icon {
+				color: $light-shade;
+				transition: 1.5s ease-out;
+			}
+		}
+
+		h3 {
+			margin-left: $gap/2;
+		}
+	}
 }

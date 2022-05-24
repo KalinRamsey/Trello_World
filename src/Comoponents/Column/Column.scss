@@ -25,10 +25,26 @@
 
 	footer {
 		padding-right: $gap;
-		text-align: right;
+		text-align: center;
+		font-weight: bold;
 		height: $col-footer-height;
 		line-height: $col-footer-height;
 		border-radius: 0 0 $col-border-radius $col-border-radius;
+
+		&:hover {
+			background: $light-accent;
+			transition: 1.5s ease-out;
+
+			.icon {
+				color: $light-shade;
+				transition: 1.5s ease-out;
+			}
+		}
+
+		.footer-action {
+			width: 100%;
+			cursor: pointer;
+		}
 	}
 
 	.card-list {

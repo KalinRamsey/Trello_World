@@ -4,7 +4,10 @@ const BoardBar = () => {
 	return (
 		<>
 			<nav className='navbar-board'>
-				<h3>+ New Board</h3>
+				<div className='add-new-column'>
+					<i className='fa fa-plus icon'></i>
+					<h3>New Column</h3>
+				</div>
 			</nav>
 		</>
 	);
