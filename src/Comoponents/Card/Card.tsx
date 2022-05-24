@@ -1,11 +1,23 @@
 import "./Card.scss";
 
-const Card = () => {
+interface CardInfo {
+	id: string;
+	boardId: string;
+	columnId: string;
+	title: string;
+	image: string | null;
+}
+
+const Card = (props: { card: CardInfo }) => {
+	const { card } = props;
+
 	return (
 		<>
 			<li className='card-item'>
-				<img src='https://picsum.photos/256/128' alt='alt text' />
-				Design & Research
+				<h5>{card.title}</h5>
+				{card.image && (
+					<img className='card-cover' src={card.image} alt='alt text' />
+				)}
 			</li>
 		</>
 	);

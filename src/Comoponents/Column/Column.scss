@@ -23,7 +23,8 @@
 	}
 
 	footer {
-		padding-left: 10px;
+		padding-right: $gap;
+		text-align: right;
 		height: $col-footer-height;
 		line-height: $col-footer-height;
 		border-radius: 0 0 $col-border-radius $col-border-radius;
